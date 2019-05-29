@@ -4,7 +4,17 @@ project(hello_prog)
 #add_library(hello_lib STATIC hello.cpp hello.h)
 #target_include_directories(hello_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
+set(EXE_INCLUDES
+  exercises/exercises_1.h
+)
+
+
+set(EXE_SOURCES
+
+)
+
 # The main program
-add_executable(prog Main.cpp)
+add_executable(prog Main.cpp ${EXE_SOURCES} ${EXE_INCLUDES})
+target_include_directories(prog PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/exercises)
 target_link_libraries(prog PRIVATE catch)
 target_link_libraries(prog PRIVATE utils)

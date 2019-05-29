@@ -9,6 +9,8 @@
 
 #include "catch.hpp"
 #include "Utils/Time.h"
+#include <iostream>
+#include "exercises_1.h"
 
 int main() {
     using Utils::Time;
@@ -27,6 +29,18 @@ int main() {
     time_t deltaMs = Time::diff(startMs, endMs);
     
 	printf("elapsed time: %llu\n", deltaMs);
-    
+	std::cout << std::endl << std::endl;
+
+	//C++ Primer Exercise Executions
+	std::cout << "Exercises" << std::endl << std::endl;
+
+	exercise1_3();
+	exercise1_4();
+	exercise1_5();
+
+	//Wait for Input Before Exiting
+	int a;
+	std::cin >> a;
+
 	return 0;
 }
