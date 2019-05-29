@@ -6,8 +6,9 @@ project(hello_prog)
 
 set(EXE_INCLUDES
   exercises/exercises_1.h
+  # copied from C++ Primer Source Code
+  exercises/Sales_item.h
 )
-
 
 set(EXE_SOURCES
 
