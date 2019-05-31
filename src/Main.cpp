@@ -38,6 +38,8 @@ int main() {
 	exercise1_4();
 	exercise1_5();
 
+	exercise2_3();
+
 	//Wait for Input Before Exiting
 	int a;
 	std::cin >> a;
