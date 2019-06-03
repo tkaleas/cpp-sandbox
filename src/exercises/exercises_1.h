@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <vector>
 
 #include "Sales_item.h"
 
@@ -215,4 +216,23 @@ string exercise3_10() {
 			}
 		}
 		return output;
+}
+
+void exercise3_14_15() {
+	vector<int> list;
+	vector<string> stringList;
+
+	int cur;
+	string curString;
+	
+	//3_14
+	while (cin >> cur) {
+		list.push_back(cur);
+	}
+
+	//3_15
+	while (cin >> curString) {
+		stringList.push_back(curString);
+	}
+
 }
