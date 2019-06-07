@@ -236,3 +236,64 @@ void exercise3_14_15() {
 	}
 
 }
+template <typename T>
+void printSizeContents(const std::vector<T>& a) {
+	cout << a.size() << std::endl;
+	for each (T obj in a)
+	{
+		cout << obj << ",";
+	}
+	cout << endl;
+}
+
+void exercise_3_16() {
+	vector<int> v1;
+	printSizeContents(v1);
+	vector<int> v2(10); 
+
+	printSizeContents(v2);
+	vector<int> v3(10, 42);
+
+	printSizeContents(v3);
+	vector<int> v4{ 10 };
+
+	printSizeContents(v4);
+	vector<int> v5{ 10, 42 };
+
+	printSizeContents(v5);
+	vector<string> v6{ 10 };
+
+	printSizeContents(v6);
+	vector<string> v7{ 10, "hi" };
+
+	printSizeContents(v7);
+
+}
+
+void exercise_3_20(){
+	vector<int> v{ 10, 42, 25, 100, 87, 82 };
+	for (int i = 0; i < v.size() / 2; i++) {
+		int a = v[i];
+		int b = v[v.size()-i-1];
+		cout << a + b << endl;
+	}
+}
+
+void exercise_3_31() {
+	int a[10];
+	for (int i = 0; i < 10; i++) {
+		a[i] = i;
+	}
+
+}
+
+void exercise_3_35() {
+	int a[10];
+	int *p = a;
+	for (int i = 0; i < 10; i++) {
+		*(p+i) = i;
+		cout << *(p + i) << endl;
+	}
+
+	
+}
