@@ -297,3 +297,49 @@ void exercise_3_35() {
 
 	
 }
+
+void exercise_4_21() {
+	vector<int> n = { 0,1,2,3,4,5,6,7 };
+	vector<int>::iterator iter;
+
+	for (iter = n.begin(); iter != n.end(); ++iter) {
+		*iter = ((*iter % 2) != 0) ? (*iter) * 2 : *iter;
+	}
+
+}
+
+void exercise_5_14() {
+
+	string inputWord, currentWord, maxWord;
+	int curCount, maxCount;
+	curCount = maxCount = 0;
+
+	if (cin >> maxWord) {
+		++maxCount;
+	}
+
+	while (cin >> inputWord) {
+		if (currentWord == inputWord) {
+			++curCount;
+		}
+		else {
+			//check if We have a new max word
+			if (curCount > maxCount) {
+				maxWord = currentWord;
+				maxCount = curCount;
+			}
+			//Reset Count
+			currentWord = inputWord;
+			curCount = 1;
+		}
+	}
+	//Update Final Count after CIN
+	if (curCount > maxCount) {
+		maxWord = currentWord;
+		maxCount = curCount;
+	}
+
+	//Report Max Word
+	cout << "Max Word:" << maxWord << ", Max Count:" << maxCount << endl;
+
+}
