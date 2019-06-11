@@ -12,5 +12,5 @@ cd build
 cmake .. -G "Visual Studio 15 2017 Win64"
 ```
 
-
+[CMake Visual Studio Guide](https://cognitivewaves.wordpress.com/cmake-and-visual-studio/#cmakelists-details)
 [C++ Primer Exercises](https://github.com/jaege/Cpp-Primer-5th-Exercises)
