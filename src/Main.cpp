@@ -34,14 +34,30 @@ int main() {
 	//C++ Primer Exercise Executions
 	std::cout << "Exercises" << std::endl << std::endl;
 
-	exercise1_3();
-	exercise1_4();
-	exercise1_5();
+	//exercise1_3();
+	//exercise1_4();
+	//exercise1_5();
+	exercise1_6();
+	//exercise2_3();
 
-	exercise2_3();
+	//exercise_3_16();
+	//exercise_3_35();
 
-	exercise_3_16();
-	exercise_3_35();
+	//std::cout <<"Fact:" << fact(0) << std::endl;
+
+	//std::cout << "Fact:" << fact(1) << std::endl;
+
+	//std::cout << "Fact:" << fact(5) << std::endl;
+
+	//std::cout << "Fact:" << fact(15) << std::endl;
+
+
+	//std::cout << "Se:" << sequencer() << std::endl;
+
+	//std::cout << "Se:" << sequencer() << std::endl;
+
+	//std::cout << "Se:" << sequencer() << std::endl;
+
 	//Wait for Input Before Exiting
 	int a;
 	std::cin >> a;

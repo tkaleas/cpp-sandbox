@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "Sales_item.h"
+#include "Sales_data.h"
 
 using namespace std;
 
@@ -29,6 +30,28 @@ static void exercise1_5() {
 	std::cout << " is ";
 	std::cout << v1 + v2;
 	std::cout << std::endl;
+}
+
+//bookstore application
+static bool exercise1_6() {
+	Sales_item total;
+	if (cin >> total) {
+		Sales_item trans;
+		while (cin >> trans) {
+			if (total.isbn() == trans.isbn())
+				total += trans;
+			else {
+				cout << total << endl;
+				total = trans;
+			}
+		}
+		cout << total << endl;
+	}
+	else {
+		cerr << "No Data." << endl;
+		return false;
+	}
+	return true;
 }
 
 static void exercise1_7() {
@@ -342,4 +365,95 @@ void exercise_5_14() {
 	//Report Max Word
 	cout << "Max Word:" << maxWord << ", Max Count:" << maxCount << endl;
 
+}
+
+void exercise_5_23() {
+	int i, j;
+	cin >> i;
+	cin >> j;
+	try {
+		if (j == 0)
+			throw runtime_error("Cannot Divide By Zero");
+		int d = i / j;
+		cout << d << endl;
+	}
+	catch (runtime_error err) {
+		cout << "Error" << err.what() << endl;
+	}
+}
+
+int fact(int n) {
+	// Does not handle overflow
+	int t = n > 0 ? 1 : 0;
+	for (int i = 1; i <= n; i++) {
+		t *= i;
+	}
+	return t;
+}
+
+int sequencer() {
+	static int s = -1;
+	return ++s;
+}
+
+void reset(int &i) {
+	i = 0;
+}
+
+int exercise_6_21(int i, int *p) {
+	return i > *p ? i : *p;
+}
+
+void exercise_6_22(int *p1, int *p2) {
+	//Value Swap
+	int temp = *p1;
+	*p1 = *p2;
+	*p2 = temp;
+
+	//Pointer Swap
+	int *tempp = p1;
+	p1 = p2;
+	p2 = tempp;
+}
+
+//main with 2 arguements
+int main_6_25(int argc, char **argv) {
+	if (argc < 3) {
+		return -1;
+	}
+	//No Error Checking: FYI
+	char *option1 = argv[1];
+	char *option2 = argv[2];
+	string s1(option1);
+	string s2(option2);
+	string total = s1 + s2;
+	cout << total << endl;
+}
+
+//main with many arguements
+void main_6_26(int argc, char **argv) {
+
+	//No Error Checking: FYI
+	for (int i = 0; i < argc; i++) {
+		cout << argv[i] << endl;
+	}
+}
+
+bool str_subrange(const string &str1, const string &str2) {
+	if (str1.size() == str2.size())
+		return str1 == str2;
+	auto size = (str1.size() < str2.size()) ? str1.size() : str2.size();
+	for (decltype(size) i = 0; i != size; ++i) {
+		if (str1[i] != str2[i])
+			//return;
+			return true;
+	}
+	return false;
+}
+//exercise_6_33(0,vector)
+void exercise_6_33(int cpos, vector<int> v) {
+	if (cpos > v.size()-1);
+		return;
+	cout << v[cpos]<< ",";
+	exercise_6_33(cpos + 1, v);
 }
