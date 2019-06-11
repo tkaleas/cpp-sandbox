@@ -8,6 +8,8 @@ set(EXE_INCLUDES
   exercises/exercises_1.h
   # copied from C++ Primer Source Code
   exercises/Sales_item.h
+  # custom classes written for C++ primer code
+  exercises/Sales_data.h
 )
 
 set(EXE_SOURCES
