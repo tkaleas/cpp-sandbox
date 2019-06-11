@@ -25,5 +25,6 @@ target_link_libraries(prog PRIVATE utils)
 # Input/Output Debugging with File I/O
 if (MSVC)
   set_target_properties( prog PROPERTIES 
-                         VS_DEBUGGER_COMMAND_ARGUMENTS "<test_books.txt >output.txt")
+                         #VS_DEBUGGER_COMMAND_ARGUMENTS "<test_books.txt >output.txt")
+                         VS_DEBUGGER_COMMAND_ARGUMENTS "<test_books.txt")
 endif()

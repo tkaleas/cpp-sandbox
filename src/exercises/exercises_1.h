@@ -457,3 +457,32 @@ void exercise_6_33(int cpos, vector<int> v) {
 	cout << v[cpos]<< ",";
 	exercise_6_33(cpos + 1, v);
 }
+
+//bookstore application : revised
+static bool exercise7_1() {
+	Sales_data total_books;
+	float price;
+	// Example Input: 0 - 201 - 70353 - X 4 22.99
+	if (cin >> total_books.bookNo >> total_books.units_sold >> price) {
+		total_books.revenue = total_books.units_sold * price;
+		Sales_data trans;
+		while (cin >> trans.bookNo >> trans.units_sold >> price) {
+			trans.revenue = trans.units_sold * price;
+			if (total_books.bookNo == total_books.bookNo) {
+				total_books.revenue += trans.revenue;
+				total_books.units_sold += trans.units_sold;
+			} else {
+				//New Book -> Empty Transaction List
+				cout << total_books.bookNo << " " << total_books.revenue << " " << total_books.units_sold << endl;
+				total_books = trans;
+			}
+		}
+		//Final Book Transaction List
+		cout << total_books.bookNo << " " << total_books.revenue << " " << total_books.units_sold << endl;
+	}
+	else {
+		cerr << "No Data." << endl;
+		return false;
+	}
+	return true;
+}
