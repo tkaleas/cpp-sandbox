@@ -461,23 +461,29 @@ void exercise_6_33(int cpos, vector<int> v) {
 //bookstore application : revised
 static bool exercise7__1_4() {
 	Sales_data total_books;
-	float price;
+//	float price;
 	// Example Input: 0 - 201 - 70353 - X 4 22.99
-	if (cin >> total_books.bookNo >> total_books.units_sold >> price) {
-		total_books.revenue = total_books.units_sold * price;
+//	if (cin >> total_books.bookNo >> total_books.units_sold >> price) {
+//		total_books.revenue = total_books.units_sold * price;
+	if (read(cin, total_books)) {
 		Sales_data trans;
-		while (cin >> trans.isbn() >> trans.isbn() >> price) {
-			trans.revenue = trans.units_sold * price;
-			if (total_books.bookNo == total_books.bookNo) {
-				total_books.combine(trans);
+//		while (cin >> trans.bookNo >> trans.units_sold >> price) {
+//			trans.revenue = trans.units_sold * price;
+		while (read(cin,trans)) {
+			if (total_books.isbn() == trans.isbn()) {
+				//total_books.combine(trans);
+				total_books = add(total_books, trans);
 			} else {
 				//New Book -> Empty Transaction List
-				cout << total_books.bookNo << " " << total_books.revenue << " " << total_books.units_sold << endl;
+				//cout << total_books.bookNo << " " << total_books.revenue << " " << total_books.units_sold << endl;
+				print(cout, total_books);
 				total_books = trans;
 			}
 		}
 		//Final Book Transaction List
-		cout << total_books.bookNo << " " << total_books.revenue << " " << total_books.units_sold << endl;
+		//cout << total_books.bookNo << " " << total_books.revenue << " " << total_books.units_sold << endl;
+		print(cout, total_books);
+		cout << endl;
 	}
 	else {
 		cerr << "No Data." << endl;

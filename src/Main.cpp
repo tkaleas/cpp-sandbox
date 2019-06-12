@@ -38,7 +38,7 @@ int main() {
 	//exercise1_4();
 	//exercise1_5();
 	//exercise1_6();
-	exercise7_1();
+	exercise7__1_4();
 	//exercise2_3();
 
 	//exercise_3_16();
