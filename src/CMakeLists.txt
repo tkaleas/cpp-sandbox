@@ -11,6 +11,7 @@ set(EXE_INCLUDES
   # custom classes written for C++ primer code
   exercises/Sales_data.h
   exercises/Person.h
+  exercises/Screen.h
 )
 
 set(EXE_SOURCES

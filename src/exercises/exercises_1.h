@@ -8,6 +8,8 @@
 
 #include "Sales_item.h"
 #include "Sales_data.h"
+#include "Person.h"
+#include "Screen.h"
 
 using namespace std;
 
@@ -519,3 +521,22 @@ static bool exercise_7_13() {
 	}
 	return true;
 }
+
+void exercise_7_27() {
+	//Testing Screen Code
+	Screen myScreen(5, 5, 'X');
+	myScreen.move(4, 0).set('#').display(cout);
+	cout << endl;
+	myScreen.display(cout);
+	cout << endl;
+}
+
+//Exercise 7.31
+class Y;
+class X {
+	Y *y;
+};
+
+class Y {
+	X y;
+};
