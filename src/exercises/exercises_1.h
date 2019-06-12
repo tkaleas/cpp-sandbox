@@ -491,3 +491,31 @@ static bool exercise7__1_4() {
 	}
 	return true;
 }
+
+//bookstore application : revised
+static bool exercise_7_13() {
+	Sales_data total_books(cin);
+	if (cin) {								//still has input
+		Sales_data trans;
+		while (cin) {
+			if (total_books.isbn() == trans.isbn()) {
+				//total_books.combine(trans);
+				total_books = add(total_books, trans);
+			}
+			else {
+				//New Book -> Empty Transaction List
+
+				print(cout, total_books);
+				total_books = trans;
+			}
+		}
+		//Final Book Transaction List
+		print(cout, total_books);
+		cout << endl;
+	}
+	else {
+		cerr << "No Data." << endl;
+		return false;
+	}
+	return true;
+}

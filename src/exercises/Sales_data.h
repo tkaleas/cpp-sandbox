@@ -9,13 +9,27 @@ using namespace std;
 
 struct Sales_data {
 
+public:
+	friend std::istream &read(std::istream& s, Sales_data& data);
+	friend std::ostream &print(std::ostream& o, const Sales_data& data);
+
+	Sales_data() : bookNo(""), units_sold(0), revenue(0.0) {};
+	Sales_data(const std::string &s) : bookNo(s) {}
+	Sales_data(const std::string &s, unsigned int n, double p) : bookNo(s), units_sold(n), revenue(p*n) {}
+	Sales_data(std::istream &is) {
+		read(is, *this);
+	}
+
 	std::string isbn() const { return bookNo; }
 	Sales_data& combine(const Sales_data& data);
 
+private:
 	std::string bookNo; 
-	unsigned units_sold = 0;
-	double revenue = 0.0;
+	unsigned units_sold;
+	double revenue;
 }; 
+
+
 
 //Member Definitions
 Sales_data& Sales_data::combine(const Sales_data& data) {
