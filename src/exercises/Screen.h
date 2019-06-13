@@ -3,7 +3,22 @@
 
 #include <string>
 
+class Screen;
+
+class Window_mgr {
+public:
+	using screen_index = std::vector<Screen>::size_type;
+	void clear(screen_index);
+	Window_mgr();
+
+private:
+	std::vector<Screen> screens;  //{Screen(24, 80)};
+};
+
 class Screen {
+
+	friend void Window_mgr::clear(screen_index);
+
 public:
 	using pos = std::string::size_type;
 	using content_type = char;
@@ -61,4 +76,12 @@ inline
 Screen &Screen::set(char c) {
 	contents[cursor] = c;
 	return *this;
+}
+
+
+Window_mgr::Window_mgr() : screens{ Screen(24, 80) } {}
+
+void Window_mgr::clear(screen_index i) {
+	Screen &s = screens[i];
+	s.contents = std::string(s.height * s.width, ' ');
 }
