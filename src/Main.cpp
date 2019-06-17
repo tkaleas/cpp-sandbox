@@ -41,8 +41,10 @@ int main() {
 	//exercise7__1_4();
 	//exercise2_3();
 
-	exercise_7_27();
-
+	//exercise_7_27();
+	//exercise_8_2();
+	exercise_9_20();
+	
 	//exercise_3_16();
 	//exercise_3_35();
 

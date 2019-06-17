@@ -5,6 +5,8 @@
 #include <string>
 #include <cctype>
 #include <vector>
+#include <list>
+#include <deque>
 
 #include "Sales_item.h"
 #include "Sales_data.h"
@@ -540,3 +542,58 @@ class X {
 class Y {
 	X y;
 };
+
+istream& writeToConsole(istream &is) {
+	string input;
+	while (is >> input)
+		cout << input;
+	is.clear();
+	return is;
+}
+
+void exercise_8_2() {
+	writeToConsole(cin);
+}
+
+void exercise_9_14() {
+
+	std::list<char*> l1 = {"Hi", "Hello", "Guten Tag", "Jezebel" };
+	auto &iBegin = l1.begin();
+	auto &iEnd = l1.end();
+	vector<string> l2;
+	
+	l2.assign(iBegin, iEnd);
+}
+
+void exercise_9_18() {
+	string word;
+	//deque<string> d;
+	list<string> d;		//Literally the only change needed to convert to a list
+	while (cin >> word) {
+		d.push_back(word);
+	}
+
+	for (auto &iter = d.cbegin(); iter != d.cend(); iter++) {
+		cout << *iter << endl;
+	}
+
+}
+
+void exercise_9_20() {
+	list<int> intList = { 1,2,3,4,5,6,7,8,22,80,53,75 };
+	deque<int> even;
+	deque<int> odd;
+
+	for (auto iter = intList.begin(); iter != intList.end(); ++iter) {
+		int n = *iter;
+		if (n % 2 == 0) {
+			even.push_back(n);
+		}
+		else {
+			odd.push_back(n);
+		}
+	}
+	even;
+	odd;
+
+}
