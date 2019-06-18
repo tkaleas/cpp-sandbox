@@ -44,7 +44,10 @@ int main() {
 	//exercise_7_27();
 	//exercise_8_2();
 	exercise_9_20();
-	
+
+	//Test String Manipulation and Replacement in C++
+	cout << exercise_9_43("The Cat In The Cat In the Cat in the Cat", "Cat", "MATTER") << endl;
+
 	//exercise_3_16();
 	//exercise_3_35();
 

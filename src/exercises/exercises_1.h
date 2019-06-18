@@ -593,7 +593,21 @@ void exercise_9_20() {
 			odd.push_back(n);
 		}
 	}
-	even;
-	odd;
 
+}
+
+//iterators, insert erase
+string exercise_9_43(string s, string oldVal, string newVal) {
+	string sNew = s;
+	auto iter = sNew.begin();
+	while (iter != sNew.end() - (oldVal.length()-1)) {
+		string sub(iter,iter + oldVal.length());
+		if (sub == oldVal) {
+			iter = sNew.erase(iter, iter + oldVal.length());
+			iter = sNew.insert(iter, newVal.begin(), newVal.end());
+			//s.replace(iter, iter + oldVal.length(), newVal);
+		}
+		++iter;
+	}
+	return sNew;
 }
