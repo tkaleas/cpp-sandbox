@@ -611,3 +611,20 @@ string exercise_9_43(string s, string oldVal, string newVal) {
 	}
 	return sNew;
 }
+
+string exercise_9_44(string s, string oldVal, string newVal) {
+	for (int i = 0; i < s.length(); ++i) {
+		string sub = s.substr(i,oldVal.length());
+		if (sub == oldVal) {
+			s.replace(i,oldVal.length(), newVal);
+		}
+	} 
+	return s;
+}
+
+string exercise_9_45(string name, string prefix, string suffix) {
+	name.insert(0, prefix + " ");
+	name.append(" " + suffix);
+	return name;
+}
+
