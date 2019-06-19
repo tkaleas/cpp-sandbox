@@ -667,7 +667,7 @@ bool compareIsbns(const Sales_data &sd1, const Sales_data &sd2) {
 	return sd1.isbn() < sd2.isbn();
 }
 
-void exercise(vector<Sales_data> &data) {
+void exerciseIsbns(vector<Sales_data> &data) {
 	sort(data.begin(), data.end(), compareIsbns);
 }
 
@@ -690,3 +690,14 @@ void partitionWords(vector<string> &words) {
 }
 
 //Lambda Exercises
+auto sumLambda = [](const int &a, const int &b) {return a + b; };
+
+void captureLambdaTest() {
+	int test = 5;
+	auto captureLambda = [test](const int &b) {return test + b; };
+}
+
+void exerciseIsbns(vector<Sales_data> &data) {
+	sort(data.begin(), data.end(), [] (const Sales_data &a, const Sales_data &b) { return a.isbn() < b.isbn; });
+}
+
