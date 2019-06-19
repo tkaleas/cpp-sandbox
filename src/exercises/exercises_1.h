@@ -7,6 +7,8 @@
 #include <vector>
 #include <list>
 #include <deque>
+#include <algorithm>
+#include <numeric>
 
 #include "Sales_item.h"
 #include "Sales_data.h"
@@ -628,3 +630,63 @@ string exercise_9_45(string name, string prefix, string suffix) {
 	return name;
 }
 
+void countNumbers(int num) {
+
+	//Exercise 10_1 10_2
+	//vector<int> testNumbers = { 1,2,5,6,1,4,4,4,5,5,5,6,1,5,1,3,7,8 };
+	list<int> testNumbers = { 1,2,5,6,1,4,4,4,5,5,5,6,1,5,1,3,7,8 };
+	cout << count(testNumbers.begin(), testNumbers.end(), num) << endl;
+
+}
+
+void accumulateNum() {
+
+	//Exercise 10_1 10_2
+	vector<int> testNumbers = { 1,2,5,6,1,4,4,4,5,5,5,6,1,5,1,3,7,8 };
+	int sum = accumulate(testNumbers.cbegin(), testNumbers.cend(), 0);
+	cout << sum << endl;
+}
+
+void elimDups(vector<string> &words) {
+	for (auto iter = words.begin(); iter != words.end(); ++iter) {
+		cout << *iter << ",";
+	}
+	cout << endl;
+
+	sort(words.begin(), words.end());
+	auto end_new = unique(words.begin(), words.end());
+	words.erase(end_new, words.end());
+
+	for (auto iter = words.begin(); iter != words.end(); ++iter) {
+		cout << *iter << ",";
+	}
+	cout << endl;
+}
+
+bool compareIsbns(const Sales_data &sd1, const Sales_data &sd2) {
+	return sd1.isbn() < sd2.isbn();
+}
+
+void exercise(vector<Sales_data> &data) {
+	sort(data.begin(), data.end(), compareIsbns);
+}
+
+bool isLong(string s) {
+	return s.length() >= 5;
+}
+
+void partitionWords(vector<string> &words) {
+	for (auto iter = words.begin(); iter != words.end(); ++iter) {
+		cout << *iter << ",";
+	}
+	cout << endl;
+
+	partition(words.begin(), words.end(), isLong);
+
+	for (auto iter = words.begin(); iter != words.end(); ++iter) {
+		cout << *iter << ",";
+	}
+	cout << endl;
+}
+
+//Lambda Exercises

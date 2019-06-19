@@ -51,7 +51,15 @@ int main() {
 	cout << exercise_9_45("Bob Luga","Mr.","III") << endl;
 	//exercise_3_16();
 	//exercise_3_35();
-
+	countNumbers(1);
+	countNumbers(4);
+	countNumbers(5);
+	countNumbers(7);
+	accumulateNum();
+	vector<string> testStrings= { "the", "red" ,"fox", "jumps", "over", "the", "fox", "hilly", "brush", "in", "the", "night" };
+//	elimDups(testStrings);
+	partitionWords(testStrings);
+	
 	//std::cout <<"Fact:" << fact(0) << std::endl;
 
 	//std::cout << "Fact:" << fact(1) << std::endl;
