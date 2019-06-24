@@ -12,10 +12,12 @@ set(EXE_INCLUDES
   exercises/Sales_data.h
   exercises/Person.h
   exercises/Screen.h
+  exercises/Blob.h
 )
 
 set(EXE_SOURCES
-
+  # extra exercise class definitions
+  exercises/Blob.cpp
 )
 
 # The main program
