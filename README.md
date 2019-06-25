@@ -19,6 +19,12 @@ cmake .. -G "Visual Studio 15 2017 Win64"
 program.exe <infile >outfile
 ```
 
+## CMake
+`build.bat` and `build.sh` scripts should build automatically for VS2017, but in case you want to customize the visual studio version or build with another version or compiler, I have found the VSCode CMake utilies very helpful
+
+- [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
+- [CMake Tools](https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools)
+
 ## Links
 [CMake Visual Studio Guide](https://cognitivewaves.wordpress.com/cmake-and-visual-studio/#cmakelists-details)
 [C++ Primer Exercises](https://github.com/jaege/Cpp-Primer-5th-Exercises)
