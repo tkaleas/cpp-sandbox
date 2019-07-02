@@ -6,6 +6,8 @@
 
 using namespace std;
 
+/*StrBlob Method Definitions*/
+
 StrBlob::StrBlob() :
 	data(std::make_shared<vector<string>>()) { }
 
@@ -44,4 +46,33 @@ const string& StrBlob::back() const {
 void StrBlob::pop_back() {
 	check(0, "pop_back on empty StrBlob");
 	data->pop_back();
+}
+
+StrBlobPtr StrBlob::begin() {
+	return StrBlob(*this);
+}
+
+StrBlobPtr StrBlob::end() {
+	return StrBlobPtr(*this, data->size());
+}
+
+/*StrBlobPtr Method Definitions*/
+std::shared_ptr<std::vector<std::string>> StrBlobPtr::check(std::size_t size, const std::string& msg) const {
+	std::shared_ptr<std::vector<std::string>> ptr =  wptr.lock();
+	if (!ptr)
+		throw runtime_error("Strblob unbound");
+	if (size > ptr->size())
+		throw std::out_of_range(msg.c_str());
+	return ptr;
+}
+
+std::string& StrBlobPtr::deref() const {
+	std::shared_ptr<std::vector<std::string>> ptr = check(curr, "out of bounds");
+	return (*ptr)[curr];
+}
+
+StrBlobPtr& StrBlobPtr::incr() {
+	std::shared_ptr<std::vector<std::string>> ptr = check(curr, "out of bounds");
+	++curr;
+	return *this;
 }

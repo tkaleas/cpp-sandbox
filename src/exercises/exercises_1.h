@@ -697,7 +697,7 @@ void captureLambdaTest() {
 	auto captureLambda = [test](const int &b) {return test + b; };
 }
 
-void exerciseIsbns(vector<Sales_data> &data) {
-	sort(data.begin(), data.end(), [] (const Sales_data &a, const Sales_data &b) { return a.isbn() < b.isbn; });
+void exerciseIsbnsLambda(vector<Sales_data> &data) {
+	sort(data.begin(), data.end(), [] (const Sales_data &a, const Sales_data &b) { return a.isbn() < b.isbn(); });
 }
 

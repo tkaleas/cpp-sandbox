@@ -13,6 +13,7 @@ set(EXE_INCLUDES
   exercises/Person.h
   exercises/Screen.h
   exercises/Blob.h
+  exercises/TextQuery.h
 )
 
 set(EXE_SOURCES
