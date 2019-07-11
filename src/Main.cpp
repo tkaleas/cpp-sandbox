@@ -58,8 +58,10 @@ int main() {
 	accumulateNum();
 	vector<string> testStrings= { "the", "red" ,"fox", "jumps", "over", "the", "fox", "hilly", "brush", "in", "the", "night" };
 //	elimDups(testStrings);
-	partitionWords(testStrings);
-	
+//partitionWords(testStrings);
+
+	exercise_12_6();
+
 	//std::cout <<"Fact:" << fact(0) << std::endl;
 
 	//std::cout << "Fact:" << fact(1) << std::endl;

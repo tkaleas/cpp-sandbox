@@ -701,3 +701,45 @@ void exerciseIsbnsLambda(vector<Sales_data> &data) {
 	sort(data.begin(), data.end(), [] (const Sales_data &a, const Sales_data &b) { return a.isbn() < b.isbn(); });
 }
 
+//Dynamic Memory Allocation Exercises
+void exercise_12_6_reader(vector<int> *dyn_ints) {
+	int temp;
+	while (cin >> temp) {
+		dyn_ints->push_back(temp);
+	}
+}
+
+void exercise_12_6_printer(vector<int> *dyn_ints) {
+	for (int i = 0; i < dyn_ints->size(); i++) {
+		cout << (*dyn_ints)[i] << "," ;
+	}
+	cout << endl;
+}
+
+void exercise_12_6() {
+	vector<int> *dyn_ints = new vector<int>();
+	exercise_12_6_reader(dyn_ints);
+	exercise_12_6_printer(dyn_ints);
+	delete dyn_ints;
+}
+
+
+void exercise_12_6_reader_SHARED(shared_ptr<vector<int>> dyn) {
+	int temp;
+	while (cin >> temp) {
+		dyn->push_back(temp);
+	}
+}
+
+void exercise_12_6_printer_SHARED(shared_ptr<vector<int>> dyn) {
+	for (int i = 0; i < dyn->size(); i++) {
+		cout << (*dyn)[i] << ",";
+	}
+	cout << endl;
+}
+
+void exercise_12_6_SHARED() {
+	auto dyn_ints = make_shared<vector<int>>();
+	exercise_12_6_reader_SHARED(dyn_ints);
+	exercise_12_6_printer_SHARED(dyn_ints);
+}
