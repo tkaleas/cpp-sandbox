@@ -13,6 +13,13 @@ public:
 	friend std::istream &read(std::istream& s, Sales_data& data);
 	friend std::ostream &print(std::ostream& o, const Sales_data& data);
 
+	//Operator Friends
+	friend Sales_data& operator+(Sales_data& lhs, Sales_data& rhs);
+	//Output
+	friend std::ostream& operator<<(std::ostream &os, const Sales_data &d);
+	//Input
+	friend std::istream& operator>>(std::istream &is, Sales_data &d);
+
 	Sales_data() : bookNo(""), units_sold(0), revenue(0.0) {};
 	Sales_data(const std::string &s) : bookNo(s) {}
 	Sales_data(const std::string &s, unsigned int n, double p) : bookNo(s), units_sold(n), revenue(p*n) {}
@@ -22,8 +29,7 @@ public:
 
 	std::string isbn() const { return bookNo; }
 	Sales_data& combine(const Sales_data& data);
-	
-	inline 
+
 	double avg_price() const { return revenue / units_sold; };
 
 private:
@@ -34,10 +40,10 @@ private:
 
 //OPERATOR OVERLOADING
 //Output
-Sales_data& operator+(Sales_data& lhs, Sales_data& rhs);
-std::ostream& operator<<(std::ostream &os, const Sales_data &d);
-//Input
-std::istream& operator>>(std::istream &is, Sales_data &d);
+//Sales_data& operator+(Sales_data& lhs, Sales_data& rhs);
+//std::ostream& operator<<(std::ostream &os, const Sales_data &d);
+////Input
+//std::istream& operator>>(std::istream &is, Sales_data &d);
 
 
 
@@ -60,6 +66,23 @@ Sales_data add(const Sales_data &a, const Sales_data &b) {
 std::ostream &print(std::ostream& o, const Sales_data& data) {
 	o << data.bookNo << " " << data.units_sold << " " << data.revenue << " ";
 	return o;
+}
+
+std::ostream & operator<<(std::ostream & os, const Sales_data & d)
+{
+	os << "(" << d.isbn() << "," <<d.units_sold << "," << d.avg_price() << ")";
+	return os;
+}
+
+std::istream & operator>>(std::istream & is, Sales_data & d)
+{
+	double price;
+	is >> d.bookNo >> d.units_sold >> price;
+	if (is)
+		d.revenue = d.units_sold*price;
+	else
+		d = Sales_data();
+	return is;
 }
 
 std::istream &read(std::istream& s, Sales_data& data) {
