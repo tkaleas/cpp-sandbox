@@ -20,6 +20,8 @@ public:
 	//Input
 	friend std::istream& operator>>(std::istream &is, Sales_data &d);
 
+	Sales_data & operator+=(const Sales_data &rhs);
+
 	Sales_data() : bookNo(""), units_sold(0), revenue(0.0) {};
 	Sales_data(const std::string &s) : bookNo(s) {}
 	Sales_data(const std::string &s, unsigned int n, double p) : bookNo(s), units_sold(n), revenue(p*n) {}
@@ -39,13 +41,12 @@ private:
 };
 
 //OPERATOR OVERLOADING
-//Output
-//Sales_data& operator+(Sales_data& lhs, Sales_data& rhs);
-//std::ostream& operator<<(std::ostream &os, const Sales_data &d);
-////Input
-//std::istream& operator>>(std::istream &is, Sales_data &d);
 
-
+Sales_data & Sales_data::operator+=(const Sales_data &rhs) {
+	this->units_sold += rhs.units_sold;
+	this->revenue += rhs.revenue;
+	return *this;
+}
 
 //Member Definitions
 Sales_data& Sales_data::combine(const Sales_data& data) {
