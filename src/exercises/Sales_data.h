@@ -30,7 +30,14 @@ private:
 	std::string bookNo; 
 	unsigned units_sold;
 	double revenue;
-}; 
+};
+
+//OPERATOR OVERLOADING
+//Output
+Sales_data& operator+(Sales_data& lhs, Sales_data& rhs);
+std::ostream& operator<<(std::ostream &os, const Sales_data &d);
+//Input
+std::istream& operator>>(std::istream &is, Sales_data &d);
 
 
 
