@@ -8,12 +8,13 @@ set(EXE_INCLUDES
   exercises/exercises_1.h
   # copied from C++ Primer Source Code
   exercises/Sales_item.h
-  # custom classes written for C++ primer code
+  # custom classes written for C++ pxrimer code
   exercises/Sales_data.h
   exercises/Person.h
   exercises/Screen.h
   exercises/Blob.h
   exercises/TextQuery.h
+  exercises/Quote.h
 )
 
 set(EXE_SOURCES
@@ -30,6 +31,6 @@ target_link_libraries(prog PRIVATE utils)
 # Input/Output Debugging with File I/O
 if (MSVC)
   set_target_properties( prog PROPERTIES 
-                         #VS_DEBUGGER_COMMAND_ARGUMENTS "<test_books.txt >output.txt")
+                         #VS_DEBUGGER_COMMAND_ARGUMENTS "<test_books.tt >output.txt")
                          VS_DEBUGGER_COMMAND_ARGUMENTS "<test_books.txt")
 endif()
