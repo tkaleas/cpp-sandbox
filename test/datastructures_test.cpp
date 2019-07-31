@@ -51,7 +51,30 @@ TEST_CASE("Testing Singly Linked GetValue") {
 }
 
 TEST_CASE("Testing Singly Linked deleteFromList") {
-	//
+	SinglyLinkedList list(0);
+	list.insertIntoList(1, 1);
+	list.insertIntoList(2, 2);
+	list.insertIntoList(3, 3);
+	list.insertIntoList(4, 4);
+	list.insertIntoList(5, 5);
+
+	//Test Delete Front
+	list.deleteFromList(0);
+	REQUIRE(list.toString() == "[1, 2, 3, 4, 5]");
+	//Test Delete Middle
+	list.deleteFromList(2);
+	REQUIRE(list.toString() == "[1, 2, 4, 5]");
+	//Test Delete End (Exact End)
+	list.deleteFromList(3);
+	REQUIRE(list.toString() == "[1, 2, 4]");
+	//Test Delete End (Far)
+	list.deleteFromList(100);
+	REQUIRE(list.toString() == "[1, 2]");
+	list.deleteFromList(0);
+	list.deleteFromList(0);
+	REQUIRE(list.toString() == "[]");
+	list.deleteFromList(0);
+	REQUIRE(list.toString() == "[]");
 }
 
 TEST_CASE("Testing Singly Linked popFromList") {
