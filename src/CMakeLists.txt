@@ -5,7 +5,7 @@ project(hello_prog)
 #target_include_directories(hello_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 set(EXE_INCLUDES
-  exercises/exercises_1.h
+  exercises/exercises.h
   # copied from C++ Primer Source Code
   exercises/Sales_item.h
   # custom classes written for C++ pxrimer code
@@ -25,8 +25,9 @@ set(EXE_SOURCES
 # The main program
 add_executable(prog Main.cpp ${EXE_SOURCES} ${EXE_INCLUDES})
 target_include_directories(prog PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/exercises)
-target_link_libraries(prog PRIVATE catch)
+#target_link_libraries(prog PRIVATE catch)
 target_link_libraries(prog PRIVATE utils)
+target_link_libraries(prog PRIVATE datastructures)
 
 # Input/Output Debugging with File I/O
 if (MSVC)

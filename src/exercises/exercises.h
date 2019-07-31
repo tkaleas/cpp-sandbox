@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -9,6 +8,7 @@
 #include <deque>
 #include <algorithm>
 #include <numeric>
+#include <memory>
 
 #include "Sales_item.h"
 #include "Sales_data.h"

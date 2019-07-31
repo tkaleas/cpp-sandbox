@@ -7,11 +7,12 @@
 
 #include <cstdio>
 
-#include "catch.hpp"
+//#include "catch.hpp"
 #include "Utils/Time.h"
 #include <iostream>
-#include "exercises_1.h"
+#include "exercises.h"
 
+using namespace std;
 int main() {
     using Utils::Time;
 
@@ -48,7 +49,9 @@ int main() {
 	//Test String Manipulation and Replacement in C++
 	cout << exercise_9_43("The Cat In The Cat In the Cat in the Cat", "Cat", "MATTER") << endl;
 	cout << exercise_9_44("The Cat In The Cat In the Cat in the Cat", "Cat", "MATTER") << endl;
+	
 	cout << exercise_9_45("Bob Luga","Mr.","III") << endl;
+
 	//exercise_3_16();
 	//exercise_3_35();
 	countNumbers(1);
@@ -58,7 +61,7 @@ int main() {
 	accumulateNum();
 	vector<string> testStrings= { "the", "red" ,"fox", "jumps", "over", "the", "fox", "hilly", "brush", "in", "the", "night" };
 //	elimDups(testStrings);
-//partitionWords(testStrings);
+//  partitionWords(testStrings);
 
 	exercise_12_6();
 

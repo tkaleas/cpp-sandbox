@@ -25,6 +25,6 @@ add_subdirectory(test)
 # Problem Solving Sub Directories
 ###
 
-#add_subdirectory(arrays)
+add_subdirectory(src/datastructures)
 #add_subdirectory(directed_graphs)
 #add_subdirectory(linked_lists)
