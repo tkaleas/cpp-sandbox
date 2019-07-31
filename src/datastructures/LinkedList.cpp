@@ -47,10 +47,11 @@ string SinglyLinkedList::toString() const{
 	std::stringstream ss;
 	ListNode *c = head;
 	ss << "[";
-	while (c->next != nullptr) {
+	while (c != nullptr) {
 		ss << c->data;
 		if(c->next)
 			ss << ", ";
+		c = c->next;
 	}
 	ss << "]";
 	return ss.str();
@@ -59,31 +60,35 @@ string SinglyLinkedList::toString() const{
 void SinglyLinkedList::insertIntoList(size_t position, int value) 
 {
 	int k = 0;
-	ListNode* curr = head;
+	ListNode* curr = this->head;
+	ListNode* prev = curr;
 
 	//Insert at beginning if no other items or inserting at position 0
 	if (curr == nullptr || position == 0) {
+		ListNode* temp = curr;
 		this->head = new ListNode(value);
-		this->head->next = nullptr;
+		this->head->next = temp;
 		return;
 	}
 
-	while (k < position && curr->next != nullptr) {
+	while (k < position && curr != nullptr) {
 		k++;
+		prev = curr;
 		curr = curr->next;
 	}
 
 	//Insert At Position
-	if (curr->next) {
+	if (curr != nullptr) {
 		ListNode* newNode = new ListNode(value);
-		ListNode* temp = curr->next;
-		curr->next = newNode;
+		ListNode* temp = curr;
+		prev->next = newNode;
 		newNode->next = temp;
 	}
+
 	//Insert at End
 	else {
 		ListNode* newNode = new ListNode(value);
-		curr->next = newNode;
+		prev->next = newNode;
 	}
 }
 
