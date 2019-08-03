@@ -7,11 +7,15 @@ project(datastructures)
 set(LIB_INCLUDES
   # data structures include headers
   LinkedList.h
+  Stack.h
+  Queue.h
 )
 
 set(LIB_SOURCES
   # datastructrues class definitions
   LinkedList.cpp
+  Stack.cpp
+  Queue.cpp
 )
 
 # The main program

@@ -5,6 +5,8 @@
 
 //Some Trivial Tests to make sure Catch is working correctly. 
 #include "LinkedList.h"
+#include "Stack.h"
+#include "Queue.h"
 
 TEST_CASE("Testing Singly Linked Construction") {
 	SinglyLinkedList list(0);
@@ -83,4 +85,98 @@ TEST_CASE("Testing Singly Linked popFromList") {
 
 TEST_CASE("Testing Linked List Input Operator (<<)") {
 	//
+}
+
+
+TEST_CASE("Test Dynamic Array Stack - Push ") {
+	DynArrayStack stack(5);
+	stack.push(5);
+	stack.push(10);
+	stack.push(10);
+	REQUIRE(stack.toString() == "(2,5) [5, 10, 10, 0, 0]");
+}
+
+TEST_CASE("Test Dynamic Array Stack - Top ") {
+	DynArrayStack stack(5);
+	stack.push(5);
+	stack.push(10);
+	REQUIRE(stack.getTop() == 10);
+}
+
+
+TEST_CASE("Test Dynamic Array Stack - Size ") {
+	DynArrayStack stack(5);
+	stack.push(5);
+	stack.push(10);
+	stack.push(10);
+	REQUIRE(stack.getSize() == 3);
+}
+
+TEST_CASE("Test Dynamic Array Stack - Pop") {
+	DynArrayStack stack(5);
+	stack.push(5);
+	stack.push(10);
+	stack.push(15);
+	REQUIRE(stack.pop() == 15);
+	REQUIRE(stack.pop() == 10);
+	REQUIRE(stack.pop() == 5);
+}
+
+TEST_CASE("Test Dynamic Array Stack - Pop(Underflow)") {
+	DynArrayStack stack(5);
+	stack.push(5);
+	stack.push(10);
+	stack.push(10);
+	stack.pop();
+	stack.pop();
+	stack.pop();
+	REQUIRE_THROWS(stack.pop());
+	REQUIRE_THROWS(stack.getTop());
+}
+
+
+TEST_CASE("Test Dynamic Array Stack - Stack Double ") {
+	DynArrayStack stack(3);
+	stack.push(5);
+	stack.push(10);
+	stack.push(10);
+	stack.push(1);
+	REQUIRE(stack.toString() == "(3,6) [5, 10, 10, 1, 0, 0]");
+}
+
+
+TEST_CASE("Test Dynamic Array Stack - Reverse Stack ") {
+	DynArrayStack stack(3);
+	stack.push(1);
+	stack.push(2);
+	stack.push(3);
+	DynArrayStack::ReverseStack(stack);
+	REQUIRE(stack.toString() == "(2,3) [3, 2, 1]");
+}
+
+
+TEST_CASE("Test Linked List Queue - Enqueue") {
+	LLQueue q;
+	q.enqueue(1);
+	q.enqueue(2);
+	q.enqueue(3);
+	q.enqueue(4);
+	q.enqueue(5);
+	cout << q.toString() << endl;
+	//REQUIRE(q.toString() == "(2,3) [3, 2, 1]");
+}
+
+TEST_CASE("Test Linked List Queue - Dequeue") {
+	LLQueue q;
+	q.enqueue(1);
+	q.enqueue(2);
+	q.enqueue(3);
+	q.enqueue(4);
+	q.enqueue(5);
+	REQUIRE(q.dequeue() == 1);
+	REQUIRE(q.dequeue() == 2);
+	REQUIRE(q.dequeue() == 3);
+	REQUIRE(q.dequeue() == 4);
+	REQUIRE(q.dequeue() == 5);
+	REQUIRE_THROWS_AS(q.dequeue(), std::underflow_error);
 }
